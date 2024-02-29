@@ -1,0 +1,54 @@
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0">
+            <title>Admin Login</title>
+            <style>
+                h1{
+                    text-align: center;
+                    font-family: 'Times New Roman', Times, serif;
+                }
+                button{
+                    margin: auto;
+                    font-size: 16px;
+                    text-align: center;
+                    text-decoration: none;
+                    cursor: pointer;
+                    border: 2px solid #3498db;
+                }
+                button:hover{
+                    background-color: aquamarine;
+                    border-color: #2980b9;
+                }
+                button:active{
+                    background-color: #216a94;
+                    border-color: #216a94;
+                }
+                button:focus{
+                    outline: invert;
+                }
+                form{
+                    margin: auto;
+                    border: 2px solid #504d4d;
+                    max-width: 220px;
+                }
+            </style>
+        </head>
+        <body>
+            {% if user.is_authenticated %}
+
+                <h1>Admin Login</h1>
+                <form method="post" >
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit">Login</button>
+                </form>
+            {% endif %}
+
+        </body>
+    </head>
+</html>
+{% endblock content %}
